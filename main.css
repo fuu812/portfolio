@@ -8,22 +8,7 @@ html {
 }
 
 body {
-  /* color: var(--main-foreground); */
-  .bg_pattern{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #fff;
-    opacity: 0.4;
-    z-index: -1;
-  }
-  .Polka_v2{
-    background-image: radial-gradient(#ffc107 2px, transparent 2px), radial-gradient(#ffc107 2px, #fff,2px);
-    background-size: 40px 40px;
-    background-position: 0 0,20px 20px;
-  }
+  color: var(--main-foreground);
   line-height: 1.5;
   word-wrap: break-word;
   box-sizing: border-box;
@@ -31,22 +16,6 @@ body {
   margin: 2em auto;
   padding: 0px 30px;
 }
-
-/* .bg_pattern{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff;
-  opacity: 0.4;
-  z-index: -1;
-}
-.Polka_v2{
-  background-image: radial-gradient(#ffc107 2px, transparent 2px), radial-gradient(#ffc107 2px, #fff,2px);
-  background-size: 40px 40px;
-  background-position: 0 0,20px 20px;
-} */
 
 h1 {
   position: relative;
