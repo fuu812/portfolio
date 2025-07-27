@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript解説(初心者向け)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap " />
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+    <!-- ここから本文開始 -->
+
+    <h1>JavaScript解説(初心者向け)</h1>
+    <p>
+      このページでは、<strong>初心者</strong>に向けてJavaScriptでできることや、使い方などを紹介・解説します。<br />
+      初めてJavaScriptを学んだり、使ったりする人の役に立てば幸いです。<br />
+      <!--XXX家に代々伝わる一子相伝・門外不出の「<i class="fa-solid fa-skull-crossbones"></i><strong>
+      秘伝カレーレシピ</strong><i class="fa-solid fa-skull-crossbones"></i>」を、今だけ特別に公開します。<br />
+      秘伝のスパイスと<strong>独自の調理法</strong>が織りなす新世代のカレー、家族全員が笑顔になる魔法の一皿を、ぜひご堪能ください！-->
+    </p>
+
+    <!--<img src="curryrice.jpg" alt="カレーライスの画像" width="100%" />-->
+
+    <h2 class="ingredients">目次</h2>
+    <ul>
+      <li><a href="#paragraph1">JavaScriptとは</a></li>
+      <li><a href="#paragraph2">JavaScriptでできること</a></li>
+      <li><a href="#paragraph3">JavaScriptでWebサイトの動きをつける</a></li>
+      <li><a href="#paragraph4">参考文献</a></li>
+    </ul>
+
+    <h2 class="ingredients"><a name="paragraph1">JavaScriptとは</a></h2>
+    <p>JavaScriptとは、Webサイトやアプリケーションに動きをつけることができるプログラミング言語です。<br />
+      特にブラウザ上で動作し、CSSとともに使用されることが多いです。<br />
+      似た名前のプログラミング言語にJavaがありますが、JavaScriptとは別の言語です。
+    </p>
+
+    <h2 class="ingredients"><a name="paragraph2">JavaScriptでできること</a></h2>
+    <p>JavaScriptを使うことで、様々な表現ができるようになります。</p>
+    <h4>例</h4>
+    <ul>
+      <li>Webサイトの動きをつける</li>
+      <li>ポップアップウィンドウを表示させる</li>
+      <li>フォームの形式や内容の有無を確認する</li>
+      <li>グラフの描画</li>
+      <li>ブラウザ上での計算</li>
+      <li>ブラウザの拡張機能の作成</li>
+      <li>スマホアプリの作成</li>
+      <li>Webアプリの作成</li>
+    </ul>
+
+    <h2 class="ingredients"><a name="paragraph3">JavaScriptを使って画像を拡大表示する</a></h2>
+    <p>JavaScriptを利用して、画像を拡大してポップアップで表示させてみましょう。今回はGoogle Geminiを利用して以下の画像を生成しました。</p>
+    <img src="Gemini_Generated_Image_btihdabtihdabtih.jpg" alt="生成した画像①" width="50%" />
+    <p>この画像をポップアップで表示させます。そのためにまずはhtmlファイルでポップアップの構造を定義します。</p>
+    <p><strong>gallery</strong>というクラスを作成し、
+      クリックできるサムネイル画像として<strong>thumbnail</strong>というクラスを配置します。
+      次に、<strong>imageModal</strong>というIDを持つボップアップ全体のコンテナを作成しておきます。
+      そして、ポップアップを閉じるための<strong>close-button</strong>というクラスを作成し、ポップアップ内に配置します。
+      最後に<strong>modal-content</strong>というIDを持つ画像を配置し、ポップアップ内に表示される画像を指定し、<strong>caption</strong>というIDを持つ要素を配置して、画像の説明となる文章を表示させます。
+      ここまでのhtmlのコードを以下に示します。
+    </p>
+    <p>
+      <img src="htmlscript.png" alt="HTMLのコード" width="100%" />
+    </p>
+    <p>次に、CSSでポップアップのスタイルを定義します。</p>
+    <p>
+      JavaScriptでblockに切り替えることで表示するために、<strong>.modal</strong>を<strong>display: none;</strong>
+      としておきます。また、画像がクリックされたときにポップアップを最前面に表示させるため、<strong>position: fixed;</strong>、<strong>z-index: 1;</strong>とします。
+      そして、<strong>background-color</strong>を<strong>rgba(0, 0, 0, 0.9);</strong>とすることで、ポップアップの背景を半透明の黒にします。
+      ここまでのcssのコードを以下に示します。
+    </p>
+    <p>
+      <img src="cssscript1.png" alt="CSSのコード1" width="80%" />
+      <img src="cssscript2.png" alt="CSSのコード2" width="80%" />
+      <img src="cssscript3.png" alt="CSSのコード3" width="80%" />
+    </p>
+    <p>最後に、JavaScriptでポップアップの表示・非表示を制御するためのコードを書きます。</p>
+    <p>まず、htmlが完全に読み込まれてからJavaScriptを実行するために、<strong>DOMContentLoaded</strong>というイベントを設定しておきます。
+    次に、サムネイル画像要素を取得するために、<strong>querySelectorAll</strong>を使用して<strong>.thumbnail</strong>クラスを持つすべての画像を取得します。
+    クリックされたときにポップアップのスタイルを<strong>display</strong>から<strong>block</strong>に切り替えるために、<strong>addEventListener</strong>を使用して、クリックイベントを設定します。
+    ここでクリックされた画像のsrcとalt属性を取得し、ポップアップ内の画像と説明に設定します。
+    最後に、閉じるボタンやポップアップの背景がクリックされたときに<strong>display</strong>スタイルをnoneに切り替えて、非表示にします。
+    ここまでのJavaScriptのコードを以下に示します。
+    </p>
+    <img src="javascriptcode.png" alt="JavaScriptのコード" width="80%" />
+    <p>これらのコードを実装することで、以下のようなポップアップ表示ができる画像をwebサイト上に作ることができます!</p>
+    <p>
+    <div class="gallery">
+      <img src="Gemini_Generated_Image_btihdabtihdabtih.jpg" alt="生成した画像①" class="thumbnail" width="50%">
+    </div>
+    <div id="imageModal" class="modal">
+      <span class="close-button">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="caption" class="caption"></div>
+    </div>
+    </p>
+
+
+
+    <h2 class="directions">参考文献</h2>
+    <ol>
+      <li>
+        <a href="https://school.dhw.co.jp/course/web/contents/r_JavaScript-cando.html">JavaScriptでできることとは？Webデザイナーになるために必要な勉強のコツをご紹介 | Webデザイン・Webデザイナー専攻 | デジタルハリウッドの専門スクール(学校)</a>
+      </li><br />
+      <li>
+        <a href="https://gmotech.jp/semlabo/seo/blog/pagelinik/">ページ内リンクでジャンプやスクロールさせるHTMLタグの作成方法 | WEB集客ラボbyGMO (GMO TECH)</a>
+      </li>
+
+      <script src="script.js"></script>
+    <h6 class="directions"></h6>
+    <p>本コンテンツの作成時間(HTML/CSS/JavaScriptの設計・実装を含む) : 約6時間</p>
+    <!--<img src="cooking-scene.jpg" alt="調理イメージ画像" width="100%" />-->
+    <!-- ここまでで本文終了 -->
+    </div>
+  </body>
+</html>
